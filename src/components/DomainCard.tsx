@@ -21,6 +21,7 @@ const colorMap: Record<string, string> = {
   security: "bg-[#A78BFA] text-[#111827]",
   sre: "bg-white dark:bg-slate-900 text-[#111827] dark:text-white",
   fullstack: "bg-[#2DD4BF] text-[#111827]",
+  webdev: "bg-[#FBBF24] text-[#111827]",
 };
 
 export const DomainCard: React.FC<DomainCardProps> = ({ domain, onSelect }) => {

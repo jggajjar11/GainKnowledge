@@ -49,6 +49,11 @@ export default function App() {
     localStorage.setItem("gainknowledge_theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
+  // Scroll to top when switching views (home, quiz, results)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [quizState, activeDomainId]);
+
   const activeDomain = domains.find((d) => d.id === activeDomainId);
 
   const handleSelectDomain = (domainId: string) => {

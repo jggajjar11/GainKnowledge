@@ -30,11 +30,11 @@ export const cloudQuestions: Question[] = [
     text: "You want to implement 'Least Privilege' access in your cloud environments. What is the secure way to grant a containerized app running on AWS EKS or GCP GKE access to a cloud bucket?",
     options: [
       "Hardcode the administrator's API access keys inside the app's Docker image files.",
-      "Store your personal cloud credentials as environment variables in git-committed YAML files.",
       "Associate a Cloud IAM Role (AWS IAM Roles for Service Accounts - IRSA, or GCP Workload Identity) directly with the Kubernetes Service Account, generating short-lived dynamic credentials for the pod's container.",
+      "Store your personal cloud credentials as environment variables in git-committed YAML files.",
       "Configure the cloud bucket to be fully public, allowing read/write access to any IP."
     ],
-    correctAnswerIndex: 2,
+    correctAnswerIndex: 1,
     explanation: "EKS IRSA and GCP Workload Identity map Kubernetes service accounts to cloud IAM roles. The cloud provider injects temporary tokens into the container, avoiding long-lived hardcoded secrets that can be leaked or compromised."
   },
   {

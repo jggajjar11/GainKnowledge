@@ -77,12 +77,12 @@ export const dataengQuestions: Question[] = [
     id: "de_7",
     text: "What is 'Backfilling' in Apache Airflow, and what variable do you use to ensure your task pulls data for the correct scheduled interval rather than the current system time?",
     options: [
+      "Backfilling is adding columns to SQL tables. Use the `alter_table` command.",
       "Backfilling is running historical data through your DAG. Use the `ds` or `logical_date` (formerly `execution_date`) template variables in your queries.",
       "Backfilling is backing up database schemas to secondary buckets. Use the `current_time()` variable.",
-      "Backfilling is adding columns to SQL tables. Use the `alter_table` command.",
       "Backfilling is restarting failed workers automatically. Use the `retry_delay` configuration."
     ],
-    correctAnswerIndex: 0,
+    correctAnswerIndex: 1,
     explanation: "When backfilling (running a DAG for last month), relying on `datetime.now()` pulls today's data instead. Airflow's `logical_date` (or `ds` string) tells the task exactly which historical interval it is currently processing, keeping data accurate."
   },
   {

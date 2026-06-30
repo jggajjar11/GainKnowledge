@@ -42,6 +42,11 @@ export const QuizView: React.FC<QuizViewProps> = ({ domain, onBack, onComplete }
   const [score, setScore] = useState(0);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
 
+  // Scroll to top of the screen when moving to the next question
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentIndex]);
+
   const totalQuestions = shuffledQuestions.length;
   const currentQuestion = shuffledQuestions[currentIndex];
   const isAnswered = selectedAnswer !== null;

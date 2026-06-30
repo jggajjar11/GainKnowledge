@@ -18,11 +18,11 @@ export const devopsQuestions: Question[] = [
     text: "What are the four core metrics defined by DORA (DevOps Research and Assessment) to measure software delivery performance?",
     options: [
       "CPU Usage, Disk I/O, Network Latency, Memory Leak Rate.",
-      "Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Failed Deployment Rollback Time.",
       "Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Mean Time to Recovery (MTTR) / Service Restoration Time.",
+      "Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Failed Deployment Rollback Time.",
       "Code Coverage %, Lines of Code, Number of Pull Requests, Velocity Points."
     ],
-    correctAnswerIndex: 2,
+    correctAnswerIndex: 1,
     explanation: "DORA defines four metrics: Deployment Frequency (how often code is deployed), Lead Time (code commit to prod), Change Failure Rate (% of deployments causing outages), and Service Restoration Time (MTTR from incident)."
   },
   {
@@ -53,10 +53,10 @@ export const devopsQuestions: Question[] = [
     id: "do_5",
     text: "What is the key difference between a Kubernetes 'Liveness Probe' and a 'Readiness Probe'?",
     options: [
-      "Liveness probes run on startup; readiness probes run only on shutdown.",
+      "There is no difference; they are duplicate terms for health checks.",
       "Liveness probes determine if a container needs to be restarted (killed if failing); Readiness probes determine if a container is ready to accept network traffic (removed from load balancers if failing).",
       "Liveness probes check memory; readiness probes check CPU utilization.",
-      "There is no difference; they are duplicate terms for health checks."
+      "Liveness probes run on startup; readiness probes run only on shutdown."
     ],
     correctAnswerIndex: 1,
     explanation: "If a liveness probe fails, Kubernetes kills the pod and boots a new one. If a readiness probe fails, the pod is left alive but marked unhealthy, meaning the Ingress/Service stops routing traffic to it until it recovers."
@@ -91,8 +91,8 @@ export const devopsQuestions: Question[] = [
     options: [
       "Blue-Green is manual; Canary is completely automated.",
       "Blue-Green routes traffic to a completely new identical cluster alongside the old one, switching 100% of traffic instantly; Canary gradually rolls out the new version to a tiny subset of users (e.g., 5%) first, monitoring metrics before fully scaling.",
-      "Blue-Green only works on AWS; Canary only works on GCP.",
-      "Blue-Green is for frontend updates; Canary is for backend SQL schema migrations."
+      "Blue-Green is for frontend updates; Canary is for backend SQL schema migrations.",
+      "Blue-Green only works on AWS; Canary only works on GCP."
     ],
     correctAnswerIndex: 1,
     explanation: "Blue-Green maintains two identical environments, making rollback instant but requiring double resources. Canary tests the waters: it shifts a small sliver of production traffic to the new version, validating error rates before a wider rollout."
@@ -101,10 +101,10 @@ export const devopsQuestions: Question[] = [
     id: "do_9",
     text: "In modern cloud architectures, what is 'Platform Engineering', and how does it relate to traditional DevOps?",
     options: [
-      "Platform Engineering is a marketing rebranding of hardware server repair.",
+      "Platform Engineering completely eliminates the need for CI/CD pipelines.",
       "Platform Engineering focuses on building 'Internal Developer Platforms' (IDPs) and self-service portals to reduce cognitive load on software engineers, standardizing deployments while leaving infrastructure details to platform teams.",
       "Platform Engineering requires all developers to write code in raw assembly language.",
-      "Platform Engineering completely eliminates the need for CI/CD pipelines."
+      "Platform Engineering is a marketing rebranding of hardware server repair."
     ],
     correctAnswerIndex: 1,
     explanation: "Traditional DevOps often forced software developers to learn complex Kubernetes, Terraform, and IAM rules (cognitive overload). Platform Engineering packages these into automated, reusable IDP portals, enabling self-service."
@@ -139,8 +139,8 @@ export const devopsQuestions: Question[] = [
     options: [
       "Base64 is a highly secure encryption standard that requires supercomputers to crack.",
       "Base64 is not encryption; it is simply plain-text encoding that is trivially decoded. Encrypted secrets allow commit safely to public Git, while providers like Vault generate dynamic, short-lived credentials on demand.",
-      "Base64 secrets are incompatible with Docker container execution.",
-      "Kubernetes secrets cannot be read by application containers."
+      "Kubernetes secrets cannot be read by application containers.",
+      "Base64 secrets are incompatible with Docker container execution."
     ],
     correctAnswerIndex: 1,
     explanation: "Checking base64 files into Git is a major security breach. Standard Kubernetes secrets are just base64-encoded plaintext. Encrypting secret files with GPG/AWS KMS before commit (GitOps), or pulling from HashiCorp Vault at runtime, keeps credentials secure."
@@ -149,10 +149,10 @@ export const devopsQuestions: Question[] = [
     id: "do_13",
     text: "What does the 'Chaos Engineering' practice (e.g., using Netflix's Chaos Monkey) seek to prove in production clusters?",
     options: [
-      "To verify that developers can fix bugs during late-night hours.",
+      "To force the system to perform automated SQL index updates.",
       "To test and prove the resilience of a distributed system by proactively injecting failures (killing random pods, dropping packets) to ensure the system heals itself automatically without user downtime.",
       "To test how many fake user registrations a database can handle before crashing.",
-      "To force the system to perform automated SQL index updates."
+      "To verify that developers can fix bugs during late-night hours."
     ],
     correctAnswerIndex: 1,
     explanation: "Chaos engineering tests resiliency theories in production. By systematically breaking things (e.g. terminating AWS instances in multi-AZ setups), you verify that automated failovers, auto-scalers, and circuit breakers function as designed."
@@ -187,8 +187,8 @@ export const devopsQuestions: Question[] = [
     options: [
       "Non-root containers run up to 30% faster on modern Linux servers.",
       "In the event of a container breakout vulnerability, an attacker who compromises the container process won't inherit host-level root privileges, limiting their ability to compromise the underlying physical node.",
-      "Root containers cannot write files to local volumes.",
-      "Non-root users are exempt from cloud subscription licensing fees."
+      "Non-root users are exempt from cloud subscription licensing fees.",
+      "Root containers cannot write files to local volumes."
     ],
     correctAnswerIndex: 1,
     explanation: "By default, Docker containers run processes as root. If an attacker exploits an application exploit and escapes the container namespace, they can gain root access to the physical host. Running as non-root (UID 10001) heavily restricts this."
@@ -197,10 +197,10 @@ export const devopsQuestions: Question[] = [
     id: "do_17",
     text: "In Prometheus metrics, what is the fundamental difference between a 'Counter' and a 'Gauge'?",
     options: [
-      "Counters are only for error rates; Gauges are for user signups.",
+      "Prometheus does not support Counters; it uses standard Prometheus histograms instead.",
       "A Counter is a cumulative metric that only ever increases or resets to zero on reboot (e.g. total requests); a Gauge is a metric that can go up and down arbitrarily (e.g. current memory usage).",
       "Gauges are floating-point numbers; Counters can only be integers.",
-      "Prometheus does not support Counters; it uses standard Prometheus histograms instead."
+      "Counters are only for error rates; Gauges are for user signups."
     ],
     correctAnswerIndex: 1,
     explanation: "Counters model cumulative events (e.g., total web requests). To calculate rates, you apply the `rate()` function. Gauges measure fluctuating instantaneous states (e.g., disk usage, queue size) where rates are irrelevant."
@@ -235,8 +235,8 @@ export const devopsQuestions: Question[] = [
     options: [
       "It stores the compiled binary of the Helm executable.",
       "It serves as the default configuration file, declaring variable values that are injected dynamically into your Helm chart templates, allowing easy customization across different environments (dev, prod).",
-      "It lists all the docker containers running on your local machine.",
-      "It encrypts the communication channel between Helm and the Kubernetes API."
+      "It encrypts the communication channel between Helm and the Kubernetes API.",
+      "It lists all the docker containers running on your local machine."
     ],
     correctAnswerIndex: 1,
     explanation: "Helm charts use templates for Kubernetes objects. The `values.yaml` holds the parameters (e.g. replicaCount, image tag, CPU values) that fill these templates. This keeps resource definitions dry and customizable for environments."

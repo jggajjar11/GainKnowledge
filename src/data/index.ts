@@ -11,6 +11,7 @@ import { mobileQuestions } from "./mobile";
 import { qaQuestions } from "./qa";
 import { securityQuestions } from "./security";
 import { sreQuestions } from "./sre";
+import { webdevQuestions } from "./webdev";
 
 export const domains: Domain[] = [
   {
@@ -168,5 +169,18 @@ export const domains: Domain[] = [
     hoverBorderClass: "hover:border-fuchsia-500/40",
     textClass: "text-fuchsia-600 dark:text-fuchsia-400",
     questions: sreQuestions
+  },
+  {
+    id: "webdev",
+    name: "Web Developer / Engineer",
+    shortName: "Web Dev",
+    iconName: "Globe",
+    description: "HTML5/CSS3 rendering, modern Vanilla JS event loops, Tailwind/Bootstrap utilities, preprocessor compiling, Gutenberg blocks, and CMS visual builder scaling.",
+    difficulty: "Intermediate",
+    colorClass: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
+    bgClass: "from-yellow-500/10 to-amber-500/10",
+    hoverBorderClass: "hover:border-yellow-500/40",
+    textClass: "text-yellow-600 dark:text-yellow-400",
+    questions: webdevQuestions
   }
 ];

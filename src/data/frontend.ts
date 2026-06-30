@@ -77,12 +77,12 @@ export const frontendQuestions: Question[] = [
     id: "fe_7",
     text: "What is the primary benefit of CSS Container Queries (`@container`) over standard Media Queries (`@media`) in modern component-driven development?",
     options: [
+      "Container queries allow styling elements based on the server's CPU temperature.",
       "Container queries allow elements to style themselves based on the width of their parent container instead of the global browser viewport, making components truly modular and self-contained.",
       "Container queries load 10x faster and run on GPU threads.",
-      "Container queries allow styling elements based on the server's CPU temperature.",
       "Container queries automatically convert flexbox layouts into CSS grids."
     ],
-    correctAnswerIndex: 0,
+    correctAnswerIndex: 1,
     explanation: "Media queries only inspect the viewport. A component placed in a narrow sidebar and a wide main panel would see the same viewport width. Container queries let the component adapt layout depending on the space its container provides."
   },
   {

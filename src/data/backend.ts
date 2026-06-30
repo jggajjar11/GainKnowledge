@@ -53,12 +53,12 @@ export const backendQuestions: Question[] = [
     id: "be_5",
     text: "You are building a high-throughput notification system. What is the fundamental architectural difference between Apache Kafka and RabbitMQ?",
     options: [
-      "RabbitMQ is written in C++, whereas Kafka is written in JavaScript.",
       "Kafka is a smart-broker/dumb-consumer model based on an append-only commit log (replayable stream); RabbitMQ is a dumb-broker/smart-consumer model based on message queues (messages deleted upon acknowledgment).",
       "Kafka is a distributed append-only commit log where consumers manage their own offset positions (replayable); RabbitMQ is a smart-broker model that routes, queues, and tracks acknowledgments, deleting messages upon successful delivery.",
+      "RabbitMQ is written in C++, whereas Kafka is written in JavaScript.",
       "RabbitMQ only supports binary files, whereas Kafka only supports strings."
     ],
-    correctAnswerIndex: 2,
+    correctAnswerIndex: 1,
     explanation: "Kafka is a log-centric design: messages are stored sequentially and can be re-read (replayable). RabbitMQ is a traditional message queue where the broker handles routing (exchanges) and discards messages once acknowledged."
   },
   {
