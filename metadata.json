@@ -1,0 +1,6 @@
+{
+  "name": "GainKnowledge",
+  "description": "A comprehensive tech interview preparation quiz app spanning 12 domains with high-quality scenario-based questions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
